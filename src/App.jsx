@@ -5,22 +5,22 @@ function App() {
 
   let [pokemonName, setPokemonName] = useState('')
   let [pokemonImg, setPokemonImg] = useState('')
-  const [algo, setAlgo] = useState(1);
+  const [id, setId] = useState(1);
 
   function siguiente() {
-    setAlgo(algo + 1);
+    setId(id + 1);
   }
 
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${algo}`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then(result => result.json())
       .then(data => {
         (setPokemonName(data.name)),
           (setPokemonImg(data.sprites.front_default))
       })
 
-  }, [algo])
+  }, [id])
 
 
 
